@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Painel Administrativo - TECHNEXA</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+<body class="admin-body">
+
+
+    <!-- =========================
+         LOGIN
+    ========================== -->
+
+    <section
+        id="areaLogin"
+        class="login-container"
+    >
+
+        <div class="login-card">
+
+            <div class="login-logo">
+                TN
+            </div>
+
+            <span class="login-mini">
+                TECHNEXA
+            </span>
+
+            <h1>
+                Área Administrativa
+            </h1>
+
+            <p class="login-texto">
+                Entre com seu e-mail e senha
+                para gerenciar os serviços
+                da TECHNEXA.
+            </p>
+
+
+            <form id="formLogin">
+
+                <div class="campo">
+
+                    <label for="emailLogin">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="emailLogin"
+                        placeholder="Seu e-mail"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="senhaLogin">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senhaLogin"
+                        placeholder="Sua senha"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="botao-login"
+                    id="botaoLogin"
+                >
+                    Entrar
+                </button>
+
+
+                <p
+                    id="mensagemLogin"
+                    class="mensagem-login"
+                ></p>
+
+            </form>
+
+
+            <a
+                href="index.html"
+                class="link-voltar-loja"
+            >
+                ← Voltar para o site
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAINEL
+    ========================== -->
+
+    <div
+        id="areaPainel"
+        style="display: none;"
+    >
+
+        <header class="admin-topo">
+
+            <div>
+
+                <span class="admin-mini">
+                    TECHNEXA
+                </span>
+
+                <h1>
+                    Painel Administrativo
+                </h1>
+
+            </div>
+
+
+            <div class="admin-topo-acoes">
+
+                <a
+                    href="index.html"
+                    class="botao-voltar-site"
+                >
+                    Ver site
+                </a>
+
+                <button
+                    type="button"
+                    id="botaoSair"
+                    class="botao-sair"
+                >
+                    Sair
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <main class="admin-container">
+
+
+            <!-- =========================
+                 RESUMO
+            ========================== -->
+
+            <section class="admin-resumo">
+
+                <div class="resumo-card">
+
+                    <span>
+                        Total de serviços
+                    </span>
+
+                    <strong id="totalServicos">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        Disponíveis
+                    </span>
+
+                    <strong id="totalDisponiveis">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="resumo-card">
+
+                    <span>
+                        Indisponíveis
+                    </span>
+
+                    <strong id="totalIndisponiveis">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 FORMULÁRIO
+            ========================== -->
+
+            <section class="admin-card">
+
+                <div class="admin-titulo">
+
+                    <span>
+                        GERENCIAR SERVIÇOS
+                    </span>
+
+                    <h2 id="tituloFormulario">
+                        Adicionar novo serviço
+                    </h2>
+
+                </div>
+
+
+                <form id="formServico">
+
+                    <input
+                        type="hidden"
+                        id="servicoId"
+                    >
+
+                    <input
+                        type="hidden"
+                        id="imagemAtual"
+                    >
+
+
+                    <!-- NOME -->
+
+                    <div class="campo">
+
+                        <label for="nomeServico">
+                            Nome do serviço
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nomeServico"
+                            placeholder="Ex: Troca de tela"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- DESCRIÇÃO -->
+
+                    <div class="campo">
+
+                        <label for="descricaoServico">
+                            Descrição
+                        </label>
+
+                        <textarea
+                            id="descricaoServico"
+                            placeholder="Ex: Troca de tela para smartphones com avaliação do aparelho."
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- PREÇO -->
+
+                    <div class="campo">
+
+                        <label for="precoServico">
+                            Preço inicial
+                        </label>
+
+                        <input
+                            type="number"
+                            id="precoServico"
+                            placeholder="Ex: 100.00"
+                            step="0.01"
+                            min="0"
+                        >
+
+                        <p class="ajuda-foto">
+                            O preço é opcional. Se deixar vazio,
+                            aparecerá "Consulte o valor".
+                        </p>
+
+                    </div>
+
+
+                    <!-- CATEGORIA -->
+
+                    <div class="campo">
+
+                        <label for="categoriaServico">
+                            Categoria
+                        </label>
+
+                        <select
+                            id="categoriaServico"
+                            required
+                        >
+
+                            <option value="">
+                                Selecione
+                            </option>
+
+                            <option value="telas">
+                                Telas
+                            </option>
+
+                            <option value="baterias">
+                                Baterias
+                            </option>
+
+                            <option value="manutencao">
+                                Manutenção
+                            </option>
+
+                            <option value="software">
+                                Software
+                            </option>
+
+                            <option value="outros">
+                                Outros
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- FOTO -->
+
+                    <div class="campo">
+
+                        <label for="imagemServico">
+                            Foto do serviço
+                        </label>
+
+                        <input
+                            type="file"
+                            id="imagemServico"
+                            accept="image/*"
+                        >
+
+                        <p class="ajuda-foto">
+                            Pelo celular você poderá
+                            escolher uma foto da galeria
+                            ou usar a câmera.
+                        </p>
+
+                    </div>
+
+
+                    <!-- PREVIEW -->
+
+                    <div
+                        id="areaPreview"
+                        class="area-preview"
+                        style="display: none;"
+                    >
+
+                        <span>
+                            Pré-visualização
+                        </span>
+
+                        <img
+                            id="previewImagem"
+                            src=""
+                            alt="Pré-visualização do serviço"
+                        >
+
+                    </div>
+
+
+                    <!-- DISPONIBILIDADE -->
+
+                    <div class="campo">
+
+                        <label for="statusServico">
+                            Disponibilidade
+                        </label>
+
+                        <select id="statusServico">
+
+                            <option value="disponivel">
+                                Disponível
+                            </option>
+
+                            <option value="indisponivel">
+                                Indisponível
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- BOTÕES -->
+
+                    <div class="admin-botoes">
+
+                        <button
+                            type="submit"
+                            class="botao-salvar"
+                            id="botaoSalvar"
+                        >
+                            Salvar serviço
+                        </button>
+
+
+                        <button
+                            type="button"
+                            id="botaoCancelar"
+                            class="botao-cancelar"
+                        >
+                            Cancelar edição
+                        </button>
+
+                    </div>
+
+
+                    <p
+                        id="mensagemServico"
+                        class="mensagem-produto"
+                    ></p>
+
+                </form>
+
+            </section>
+
+
+            <!-- =========================
+                 SERVIÇOS CADASTRADOS
+            ========================== -->
+
+            <section class="admin-card">
+
+                <div class="admin-titulo">
+
+                    <span>
+                        SERVIÇOS
+                    </span>
+
+                    <h2>
+                        Serviços cadastrados
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="carregandoServicos"
+                    class="admin-carregando"
+                >
+                    Carregando serviços...
+                </div>
+
+
+                <div
+                    id="listaAdminServicos"
+                ></div>
+
+            </section>
+
+        </main>
+
+    </div>
+<!-- =========================
+     PRODUTOS
+========================== -->
+
+<section class="admin-card">
+
+    <div class="admin-titulo">
+
+        <span>
+            GERENCIAR PRODUTOS
+        </span>
+
+        <h2 id="tituloFormularioProduto">
+            Adicionar novo produto
+        </h2>
+
+    </div>
+
+
+    <form id="formProduto">
+
+        <input
+            type="hidden"
+            id="produtoId"
+        >
+
+        <input
+            type="hidden"
+            id="imagemAtualProduto"
+        >
+
+
+        <!-- NOME -->
+
+        <div class="campo">
+
+            <label for="nomeProduto">
+                Nome do produto
+            </label>
+
+            <input
+                type="text"
+                id="nomeProduto"
+                placeholder="Ex: Carregador Turbo 20W"
+                required
+            >
+
+        </div>
+
+
+        <!-- DESCRIÇÃO -->
+
+        <div class="campo">
+
+            <label for="descricaoProduto">
+                Descrição
+            </label>
+
+            <textarea
+                id="descricaoProduto"
+                placeholder="Ex: Carregador rápido compatível com smartphones."
+                rows="4"
+            ></textarea>
+
+        </div>
+
+
+        <!-- PREÇO -->
+
+        <div class="campo">
+
+            <label for="precoProduto">
+                Preço
+            </label>
+
+            <input
+                type="number"
+                id="precoProduto"
+                placeholder="Ex: 79.90"
+                step="0.01"
+                min="0"
+                required
+            >
+
+        </div>
+
+
+        <!-- CATEGORIA -->
+
+        <div class="campo">
+
+            <label for="categoriaProduto">
+                Categoria
+            </label>
+
+            <select
+                id="categoriaProduto"
+                required
+            >
+
+                <option value="">
+                    Selecione
+                </option>
+
+                <option value="carregadores">
+                    Carregadores
+                </option>
+
+                <option value="cabos">
+                    Cabos
+                </option>
+
+                <option value="fones">
+                    Fones
+                </option>
+
+                <option value="peliculas">
+                    Películas
+                </option>
+
+                <option value="capinhas">
+                    Capinhas
+                </option>
+
+                <option value="acessorios">
+                    Acessórios
+                </option>
+
+                <option value="outros">
+                    Outros
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- FOTO -->
+
+        <div class="campo">
+
+            <label for="imagemProduto">
+                Foto do produto
+            </label>
+
+            <input
+                type="file"
+                id="imagemProduto"
+                accept="image/*"
+            >
+
+            <p class="ajuda-foto">
+                Escolha uma foto da galeria
+                ou use a câmera do celular.
+            </p>
+
+        </div>
+
+
+        <!-- PREVIEW -->
+
+        <div
+            id="areaPreviewProduto"
+            class="area-preview"
+            style="display: none;"
+        >
+
+            <span>
+                Pré-visualização
+            </span>
+
+            <img
+                id="previewImagemProduto"
+                src=""
+                alt="Pré-visualização do produto"
+            >
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="campo">
+
+            <label for="statusProduto">
+                Disponibilidade
+            </label>
+
+            <select id="statusProduto">
+
+                <option value="disponivel">
+                    Disponível
+                </option>
+
+                <option value="esgotado">
+                    Esgotado
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- BOTÕES -->
+
+        <div class="admin-botoes">
+
+            <button
+                type="submit"
+                class="botao-salvar"
+                id="botaoSalvarProduto"
+            >
+                Salvar produto
+            </button>
+
+
+            <button
+                type="button"
+                id="botaoCancelarProduto"
+                class="botao-cancelar"
+            >
+                Cancelar edição
+            </button>
+
+        </div>
+
+
+        <p
+            id="mensagemProduto"
+            class="mensagem-produto"
+        ></p>
+
+    </form>
+
+</section>
+
+
+<!-- =========================
+     PRODUTOS CADASTRADOS
+========================== -->
+
+<section class="admin-card">
+
+    <div class="admin-titulo">
+
+        <span>
+            PRODUTOS
+        </span>
+
+        <h2>
+            Produtos cadastrados
+        </h2>
+
+    </div>
+
+
+    <div
+        id="carregandoProdutos"
+        class="admin-carregando"
+    >
+        Carregando produtos...
+    </div>
+
+
+    <div
+        id="listaAdminProdutos"
+    ></div>
+
+</section>
+
+    <!-- =========================
+         SUPABASE
+    ========================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- =========================
+         ADMIN JS
+    ========================== -->
+
+    <script src="admin.js"></script>
+
+</body>
+
+</html>
