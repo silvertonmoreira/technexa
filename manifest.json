@@ -1,0 +1,22 @@
+{
+  "name": "TECHNEXA",
+  "short_name": "TECHNEXA",
+  "description": "Assistência Técnica e Tecnologia TECHNEXA",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#071525",
+  "theme_color": "#0b5cff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "img/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

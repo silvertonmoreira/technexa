@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TECHNEXA</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#07111f"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="img/icon-192.png"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         TOPO
+    ========================== -->
+
+    <header class="topo">
+
+        <div class="logo-area">
+<div class="logo-circulo logo-technexa">
+    <img
+        src="img/logo-technexa.jpeg"
+        alt="Logo TECHNEXA"
+    >
+</div>
+
+            <div>
+                <h1>TECHNEXA</h1>
+
+                <p>
+                    Tecnologia que conecta
+                </p>
+            </div>
+
+        </div>
+
+    </header>
+
+    <nav class="atalhos-topo">
+
+    <a
+        href="#servicos"
+        class="atalho-item"
+    >
+        🛠 Serviços
+    </a>
+
+    <a
+        href="#produtos"
+        class="atalho-item"
+    >
+        🛒 Produtos
+    </a>
+
+</nav>
+
+    <main>
+
+        <!-- =========================
+             APRESENTAÇÃO
+        ========================== -->
+
+        <section class="hero">
+
+            <span class="hero-detalhe">
+                ⚡ TECNOLOGIA • ASSISTÊNCIA • INOVAÇÃO
+            </span>
+
+            <h2>
+                Seu aparelho merece
+                <span>
+                    o melhor cuidado
+                </span>
+            </h2>
+
+            <p>
+                Soluções em tecnologia, manutenção
+                e assistência técnica para deixar
+                seus dispositivos funcionando
+                como devem.
+            </p>
+
+            
+        </section>
+
+
+        <!-- =========================
+             SERVIÇOS
+        ========================== -->
+<section
+    class="titulo-produtos"
+    id="servicos"
+>
+
+            <div>
+
+                <span>
+                    NOSSOS SERVIÇOS
+                </span>
+
+                <h2>
+                    Como podemos ajudar?
+                </h2>
+
+            </div>
+
+            <p id="quantidadeProdutos">
+                Carregando...
+            </p>
+
+        </section>
+
+
+        <!-- BUSCA -->
+
+        <section class="busca-area">
+
+            <div class="busca">
+
+                <span>⌕</span>
+
+                <input
+                    type="text"
+                    id="campoBusca"
+                    placeholder="Buscar um serviço..."
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- CATEGORIAS -->
+
+        <section class="categorias">
+
+            <button
+                class="categoria ativa"
+                data-categoria="todos"
+            >
+                Todos
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="telas"
+            >
+                Telas
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="baterias"
+            >
+                Baterias
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="manutencao"
+            >
+                Manutenção
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="software"
+            >
+                Software
+            </button>
+
+            <button
+                class="categoria"
+                data-categoria="outros"
+            >
+                Outros
+            </button>
+
+        </section>
+
+
+        <!-- LISTA DE SERVIÇOS -->
+
+        <section
+            class="produtos"
+            id="listaProdutos"
+        ></section>
+
+
+        <!-- SEM RESULTADOS -->
+
+        <div
+            class="sem-resultados"
+            id="semResultados"
+        >
+
+            <div>⚙</div>
+
+            <h3>
+                Nenhum serviço encontrado
+            </h3>
+
+            <p>
+                Não encontramos nenhum serviço
+                com essa busca.
+            </p>
+
+        </div>
+
+<!-- =========================
+     PRODUTOS À VENDA
+========================== -->
+
+<section
+    class="titulo-produtos"
+    id="produtos"
+>
+
+    <div>
+        <span>
+            PRODUTOS
+        </span>
+
+        <h2>
+            Produtos à venda
+        </h2>
+    </div>
+
+    <p id="quantidadeProdutosVenda">
+        Carregando...
+    </p>
+
+</section>
+
+
+<section class="busca-area">
+
+    <div class="busca">
+
+        <span>⌕</span>
+
+        <input
+            type="text"
+            id="campoBuscaProdutos"
+            placeholder="Buscar um produto..."
+        >
+
+    </div>
+
+</section>
+
+
+<section class="categorias">
+
+    <button
+        class="categoria-produto ativa"
+        data-categoria="todos"
+    >
+        Todos
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="carregadores"
+    >
+        Carregadores
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="cabos"
+    >
+        Cabos
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="fones"
+    >
+        Fones
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="peliculas"
+    >
+        Películas
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="capinhas"
+    >
+        Capinhas
+    </button>
+
+    <button
+        class="categoria-produto"
+        data-categoria="acessorios"
+    >
+        Acessórios
+    </button>
+
+</section>
+
+
+<section
+    class="produtos"
+    id="listaProdutosVenda"
+></section>
+
+
+<div
+    class="sem-resultados"
+    id="semResultadosProdutos"
+>
+    <div>📦</div>
+
+    <h3>
+        Nenhum produto encontrado
+    </h3>
+
+    <p>
+        Não encontramos produtos com essa busca.
+    </p>
+</div>
+        <!-- =========================
+             SOBRE
+        ========================== -->
+
+        <section class="sobre-technexa">
+
+            <span class="sobre-mini">
+                SOBRE A TECHNEXA
+            </span>
+
+            <h2>
+                Tecnologia com confiança
+            </h2>
+
+            <p>
+                A TECHNEXA oferece soluções
+                em tecnologia e assistência técnica,
+                buscando qualidade, transparência
+                e cuidado em cada atendimento.
+            </p>
+
+            <div class="vantagens-technexa">
+
+                <div class="vantagem">
+                    <strong>⚡</strong>
+                    <span>Atendimento ágil</span>
+                </div>
+
+                <div class="vantagem">
+                    <strong>🛠️</strong>
+                    <span>Serviço especializado</span>
+                </div>
+
+                <div class="vantagem">
+                    <strong>✓</strong>
+                    <span>Qualidade e confiança</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CHAMADA WHATSAPP
+        ========================== -->
+
+        <section class="chamada-whatsapp">
+
+            <span>
+                PRECISA DE AJUDA?
+            </span>
+
+            <h2>
+                Fale com a TECHNEXA
+            </h2>
+
+            <p>
+                Conte o problema do seu aparelho
+                e solicite seu atendimento.
+            </p>
+
+            <a
+                href="https://wa.me/5591984328738"
+                target="_blank"
+                class="botao-contato"
+            >
+                Chamar no WhatsApp
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         RODAPÉ
+    ========================== -->
+
+    <footer>
+<div class="footer-logo footer-logo-imagem">
+    <img
+        src="img/logo-technexa.jpeg"
+        alt="Logo TECHNEXA"
+    >
+</div>
+
+        <h2>
+            TECHNEXA
+        </h2>
+
+        <p>
+            Tecnologia que conecta.
+        </p>
+
+        <span>
+            © 2026 TECHNEXA
+        </span>
+
+    </footer>
+
+
+    <!-- =========================
+         IMAGEM AMPLIADA
+    ========================== -->
+
+    <div
+        class="modal-imagem"
+        id="modalImagem"
+    >
+
+        <button
+            class="fechar-modal"
+            id="fecharModal"
+        >
+            ×
+        </button>
+
+        <div class="modal-conteudo">
+
+            <img
+                id="imagemAmpliada"
+                src=""
+                alt="Imagem ampliada"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- SUPABASE -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
+    <!-- PWA -->
+
+    <script>
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                () => {
+
+                    navigator.serviceWorker
+                        .register("./service-worker.js")
+                        .then(() => {
+
+                            console.log(
+                                "TECHNEXA instalada como PWA."
+                            );
+
+                        })
+                        .catch(error => {
+
+                            console.error(
+                                "Erro no Service Worker:",
+                                error
+                            );
+
+                        });
+
+                }
+            );
+
+        }
+
+    </script>
+
+</body>
+
+</html>
