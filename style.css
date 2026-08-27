@@ -1746,3 +1746,38 @@ footer span {
 
     overflow: hidden;
 }
+/* BOTÕES PRINCIPAIS MAIORES */
+
+.atalhos-topo {
+    gap: 14px;
+    padding: 16px;
+}
+
+.atalho-item {
+    min-height: 70px;
+    padding: 18px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    border-radius: 16px;
+}
+
+@media (max-width: 600px) {
+
+    .atalhos-topo {
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .atalho-item {
+        min-height: 68px;
+        padding: 16px 18px;
+
+        font-size: 17px;
+    }
+}
