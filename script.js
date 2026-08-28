@@ -1101,3 +1101,97 @@ document.addEventListener(
 // ==============================
 carregarServicos();
 carregarProdutosVenda();
+// =========================================
+// MÉTRICAS DO SITE / PWA
+// =========================================
+
+function obterVisitanteId() {
+
+    let visitanteId =
+        localStorage.getItem("technexa_visitante_id");
+
+    if (!visitanteId) {
+
+        visitanteId = crypto.randomUUID();
+
+        localStorage.setItem(
+            "technexa_visitante_id",
+            visitanteId
+        );
+    }
+
+    return visitanteId;
+}
+
+
+async function registrarMetrica(evento) {
+
+    try {
+
+        const visitanteId = obterVisitanteId();
+
+        const { error } = await supabaseClient
+            .from("metricas_site")
+            .insert({
+                visitante_id: visitanteId,
+                evento: evento
+            });
+
+        if (error) {
+            console.error(
+                "Erro ao registrar métrica:",
+                error
+            );
+        }
+
+    } catch (erro) {
+
+        console.error(
+            "Erro nas métricas TECHNEXA:",
+            erro
+        );
+    }
+}
+
+
+// =========================================
+// REGISTRAR VISITA
+// =========================================
+
+registrarMetrica("visita_site");
+
+
+// =========================================
+// ABERTURA PELO APP INSTALADO
+// =========================================
+
+const abriuComoPWA =
+    window.matchMedia(
+        "(display-mode: standalone)"
+    ).matches
+    ||
+    window.navigator.standalone === true;
+
+if (abriuComoPWA) {
+
+    registrarMetrica("abriu_pwa");
+}
+
+
+// =========================================
+// INSTALAÇÃO DO PWA
+// =========================================
+
+window.addEventListener(
+    "appinstalled",
+    () => {
+
+        registrarMetrica(
+            "instalou_pwa"
+        );
+
+        console.log(
+            "Instalação da TECHNEXA registrada."
+        );
+    }
+);
