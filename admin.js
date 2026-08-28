@@ -112,7 +112,29 @@ const totalDisponiveis =
 
 const totalIndisponiveis =
     document.getElementById("totalIndisponiveis");
+// =========================================
+// ELEMENTOS - ESTATÍSTICAS DO SITE
+// =========================================
 
+const totalVisitantesUnicos =
+    document.getElementById(
+        "totalVisitantesUnicos"
+    );
+
+const totalVisitasSite =
+    document.getElementById(
+        "totalVisitasSite"
+    );
+
+const totalAberturasPwa =
+    document.getElementById(
+        "totalAberturasPwa"
+    );
+
+const totalInstalacoesPwa =
+    document.getElementById(
+        "totalInstalacoesPwa"
+    );
 
 let servicos = [];
 
@@ -206,6 +228,8 @@ function mostrarPainel() {
     carregarServicos();
 
     carregarProdutosAdmin();
+
+    carregarEstatisticasSite();
 
 }
 
@@ -2046,4 +2070,99 @@ botaoCancelarProduto.addEventListener(
 
     }
 );
+
+// =========================================
+// CARREGAR ESTATÍSTICAS DO SITE
+// =========================================
+
+async function carregarEstatisticasSite() {
+
+    try {
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("metricas_site")
+            .select(
+                "visitante_id, evento"
+            );
+
+        if (error) {
+
+            console.error(
+                "Erro ao carregar estatísticas:",
+                error
+            );
+
+            return;
+        }
+
+        const metricas =
+            data || [];
+
+
+        // VISITAS TOTAIS
+
+        const visitas =
+            metricas.filter(
+                item =>
+                    item.evento ===
+                    "visita_site"
+            );
+
+
+        // VISITANTES ÚNICOS
+
+        const visitantes =
+            new Set(
+                visitas.map(
+                    item =>
+                        item.visitante_id
+                )
+            );
+
+
+        // ABERTURAS PELO PWA
+
+        const aberturasPwa =
+            metricas.filter(
+                item =>
+                    item.evento ===
+                    "abriu_pwa"
+            );
+
+
+        // INSTALAÇÕES
+
+        const instalacoes =
+            metricas.filter(
+                item =>
+                    item.evento ===
+                    "instalou_pwa"
+            );
+
+
+        // MOSTRAR NOS CARDS
+
+        totalVisitantesUnicos.textContent =
+            visitantes.size;
+
+        totalVisitasSite.textContent =
+            visitas.length;
+
+        totalAberturasPwa.textContent =
+            aberturasPwa.length;
+
+        totalInstalacoesPwa.textContent =
+            instalacoes.length;
+
+    } catch (erro) {
+
+        console.error(
+            "Erro nas estatísticas:",
+            erro
+        );
+    }
+}
 verificarLogin();
